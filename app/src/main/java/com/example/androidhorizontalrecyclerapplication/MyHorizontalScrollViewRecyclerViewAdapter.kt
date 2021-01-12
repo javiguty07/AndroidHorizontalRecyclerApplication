@@ -15,7 +15,7 @@ class MyHorizontalScrollViewRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_item2, parent, false)
+            .inflate(R.layout.fragment_item_horizontal, parent, false)
         return ViewHolder(view)
     }
 

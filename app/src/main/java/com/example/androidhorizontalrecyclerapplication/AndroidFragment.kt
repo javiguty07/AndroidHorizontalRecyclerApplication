@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidhorizontalrecyclerapplication.databinding.FragmentItemListBinding
+import com.example.androidhorizontalrecyclerapplication.databinding.FragmentItemListVerticalBinding
 
-class AndroidFragment : Fragment(R.layout.fragment_item_list) {
+class AndroidFragment : Fragment(R.layout.fragment_item_list_vertical) {
 
     lateinit var androidList: ArrayList<Android>
     lateinit var adapter: MyAndroidRecyclerViewAdapter
     lateinit var recyclerview: RecyclerView
-    private var _binding: FragmentItemListBinding? = null
+    private var _binding: FragmentItemListVerticalBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +26,7 @@ class AndroidFragment : Fragment(R.layout.fragment_item_list) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentItemListBinding.inflate(inflater, container, false)
+        _binding = FragmentItemListVerticalBinding.inflate(inflater, container, false)
         val view = binding.root
 
         // Set the adapter
