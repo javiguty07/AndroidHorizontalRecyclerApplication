@@ -8,7 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 
-class AndroidFragment : Fragment() {
+
+class HorizontalScrollViewFragment : Fragment() {
 
     lateinit var androidList :ArrayList<Android>
     lateinit var adapter : MyAndroidRecyclerViewAdapter
@@ -17,15 +18,18 @@ class AndroidFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_item_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_item_list2, container, false)
 
-        recyclerview = view.findViewById(R.id.list)
+        // Set the adapter
+
+        recyclerview = view.findViewById(R.id.list_horizontal)
 
         // Set the adapter
 
@@ -50,7 +54,7 @@ class AndroidFragment : Fragment() {
             Android(R.drawable.diez,"Android 10","Segundo semestre de 2019"),
             Android(R.drawable.once,"Android 11","Junio de 2020")
 
-            )
+        )
 
 
         recyclerview.adapter = MyAndroidRecyclerViewAdapter(androidList){ android ->

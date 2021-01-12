@@ -8,14 +8,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class MyAndroidRecyclerViewAdapter(
+class MyHorizontalScrollViewRecyclerViewAdapter(
     private val values: ArrayList<Android>,
     private val listener: (Android) -> Unit
-) : RecyclerView.Adapter<MyAndroidRecyclerViewAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<MyHorizontalScrollViewRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_item, parent, false)
+            .inflate(R.layout.fragment_item2, parent, false)
         return ViewHolder(view)
     }
 
@@ -26,27 +26,24 @@ class MyAndroidRecyclerViewAdapter(
 
         //Incluir al elemento el setOnClickListener
         holder.itemView.setOnClickListener { listener(android) }
-
     }
 
     override fun getItemCount(): Int = values.size
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val photoView: ImageView = view.findViewById(R.id.imageViewPhoto)
-        val nameView: TextView = view.findViewById(R.id.name_list)
-        val dateView: TextView = view.findViewById(R.id.date_list)
+        val photoView: ImageView = view.findViewById(R.id.imageViewPhoto_horizontal)
+        val nameView: TextView = view.findViewById(R.id.name_list_horizontal)
+        val dateView: TextView = view.findViewById(R.id.date_list_horizontal)
 
         override fun toString(): String {
             return super.toString() + " '" + nameView.text + "'"
         }
 
-        //Creamos el metodo bind para desacoplar el codigo del metodo onBindViewHolder
-        // y si mas adelante hay que cambiar algo del adapter
-        // solo hay que modificar la clase ViewHolder
         fun bind(android: Android) {
             nameView.text = android.name
             dateView.text = android.date
             photoView.setImageResource(android.image)
+
         }
     }
 }
