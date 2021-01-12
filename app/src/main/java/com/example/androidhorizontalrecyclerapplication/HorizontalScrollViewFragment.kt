@@ -7,13 +7,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidhorizontalrecyclerapplication.databinding.FragmentItemList2Binding
+import com.example.androidhorizontalrecyclerapplication.databinding.FragmentItemListBinding
 
 
-class HorizontalScrollViewFragment : Fragment() {
+class HorizontalScrollViewFragment : Fragment(R.layout.fragment_item_list2) {
 
     lateinit var androidList :ArrayList<Android>
-    lateinit var adapter : MyAndroidRecyclerViewAdapter
+    lateinit var adapter : MyHorizontalScrollViewRecyclerViewAdapter
     lateinit var recyclerview : RecyclerView
+    private var _binding: FragmentItemList2Binding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,11 +29,9 @@ class HorizontalScrollViewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_item_list2, container, false)
-
+        _binding = FragmentItemList2Binding.inflate(inflater, container, false)
+        val view = binding.root
         // Set the adapter
-
-        recyclerview = view.findViewById(R.id.list_horizontal)
 
         // Set the adapter
 
@@ -57,14 +59,19 @@ class HorizontalScrollViewFragment : Fragment() {
         )
 
 
-        recyclerview.adapter = MyAndroidRecyclerViewAdapter(androidList){ android ->
+        binding.listHorizontal.adapter = MyHorizontalScrollViewRecyclerViewAdapter(androidList){ android ->
 
             val itemClicked = android.name
-            Toast.makeText(context, "Version:  $itemClicked", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Versión:  $itemClicked", Toast.LENGTH_LONG).show()
         }
 
 
         return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

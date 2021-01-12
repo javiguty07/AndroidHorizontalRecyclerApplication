@@ -14,9 +14,8 @@
     app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="234dp"
-        android:layout_height="502dp"
-        android:paddingRight="30dp"
+        android:layout_width="272dp"
+        android:layout_height="match_parent"
         android:paddingBottom="30dp">
 
         <TextView
